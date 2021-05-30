@@ -1,0 +1,16 @@
+---
+applications:
+
+  - name: hotelreservation
+    memory: 1024M
+    timeout: 300
+    random-route: true
+    path: target/assignment-cf.jar
+    buildpacks:
+      - Java Main
+    env:
+      TARGET_RUNTIME: main
+      SPRING_PROFILES_ACTIVE: 'cloud'
+      JBP_CONFIG_SAPJVM_MEMORY_SIZES: 'metaspace:128m..'
+#  services:
+#  - my-application-logs

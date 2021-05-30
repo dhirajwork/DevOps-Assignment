@@ -24,5 +24,16 @@ pipeline {
                 }
             }
         }
+
+        stage ('Deploy') {
+                    steps {
+                        sh '''
+                            cf push Blue -n hotelreservation
+                            cf push Green -n hotelreservation-temp
+                            cf map-route Green cfapps.eu10.hana.ondemand.com -n hotelreservation
+                            cf unmap-route Blue cfapps.eu10.hana.ondemand.com -n hotelreservation
+                        '''
+                    }
+                }
     }
 }
