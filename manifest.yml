@@ -3,7 +3,7 @@ applications:
 
   - name: hotelreservation
     memory: 1024M
-    timeout: 300
+    timeout: 500
     random-route: true
     path: target/assignment-cf.jar
     buildpacks:
