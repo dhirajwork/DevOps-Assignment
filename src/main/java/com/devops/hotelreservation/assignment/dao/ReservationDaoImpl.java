@@ -1,6 +1,6 @@
 package com.devops.hotelreservation.assignment.dao;
 
-import com.devops.hotelreservation.assignment.entity.Reservation;
+import com.devops.hotelreservation.assignment.entity.*;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class ReservationDaoImpl implements ReservationDao {
 
 		return query.getResultList();
 	}
-	
+
 	// retrieve specific reservation by it's id
 	@Override
 	public Reservation getReservationForLoggedUserById(int resId) {
