@@ -24,5 +24,17 @@ pipeline {
                 }
             }
         }
+
+        stage ('Deploy') {
+                    steps {
+                        pushToCloudFoundry cloudSpace: 'dev', credentialsId: 'cftest', organization: 'dc0b90f5trial', target: 'https://api.cf.eu10.hana.ondemand.com'
+                    }
+                    post {
+                        success {
+                            echo "Deployed ..."
+                        }
+                    }
+                }
+
     }
 }
