@@ -24,6 +24,6 @@ public class MathApplicationTester {
   @Test
    public void testAdd(){
       //add the behavior of calc service to add two numbers
-      when(UserService.findUserByEmail(shwetagln66@gmail.com)).thenReturn(null);
+      //when(UserService.findUserByEmail(shwetagln66@gmail.com)).thenReturn(null);
    }
 }
