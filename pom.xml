@@ -109,20 +109,4 @@
 
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>sonar</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<!-- Optional URL to server. Default value is http://localhost:9000 -->
-				<sonar.host.url>
-					http://sonar.sanjaygoyal.org
-				</sonar.host.url>
-				<sonar.projectName>hotel-resevation</sonar.projectName>
-			</properties>
-		</profile>
-	</profiles>
 </project>
