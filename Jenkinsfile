@@ -16,7 +16,7 @@ pipeline {
 
         stage ('Build') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install'
+                sh 'mvn clean install'
             }
             post {
                 success {
@@ -24,17 +24,31 @@ pipeline {
                 }
             }
         }
+      stage("SonarQube analysis") {
+        steps {
+          withSonarQubeEnv('Cloud SonarQube Server') {
+            sh 'mvn sonar:sonar'
+          }
+        }
+      }
+      stage("Quality Gate") {
+        steps {
+          timeout(time: 1, unit: 'HOURS') {
+            waitForQualityGate abortPipeline: true
+          }
+        }
+    }
 
         stage ('Deploy') {
-                    steps {
-                        pushToCloudFoundry cloudSpace: 'dev', credentialsId: 'cftest', organization: 'dc0b90f5trial', target: 'https://api.cf.eu10.hana.ondemand.com'
-                    }
-                    post {
-                        success {
-                            echo "Deployed ..."
-                        }
-                    }
+            steps {
+                pushToCloudFoundry cloudSpace: 'dev', credentialsId: 'cftest', organization: 'dc0b90f5trial', target: 'https://api.cf.eu10.hana.ondemand.com'
+            }
+            post {
+                success {
+                    echo "Deployed ..."
                 }
+            }
+        }
 
     }
 }
