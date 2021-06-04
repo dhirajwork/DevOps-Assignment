@@ -52,7 +52,7 @@
             <span>Create new account</span>
 
             <!-- Email -->
-            <input type="email" placeholder="Email" required th:field="*{email}"
+            <input id="emailForCreateAccount" type="email" placeholder="Email" required th:field="*{email}"
                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" th:errorclass="fieldError" />
 
             <div th:if="${#fields.hasErrors('email')}"
@@ -64,7 +64,7 @@
             </div>
 
             <!-- User name -->
-            <input type="text" placeholder="Username" th:field="*{username}"
+            <input id="usernameId" type="text" placeholder="Username" th:field="*{username}"
                    pattern="[A-Za-z0-9]{1,20}" th:errorclass="fieldError" required />
 
             <div th:if="${#fields.hasErrors('username')}"
@@ -105,7 +105,7 @@
 
             <!-- sign up button submit -->
             <br>
-            <button id="button" >Submit</button>
+            <button id="button_CreateAccount" >Submit</button>
         </form>
     </div>
 
@@ -139,15 +139,15 @@
                 have been logged out.</div>
 
             <!-- Email  -->
-            <span>You have account? sign in now!</span> <input type="email"
+            <span>You have account? sign in now!</span> <input id="emailForLogin" type="email"
                                                                placeholder="Email" name="username" required />
 
             <!-- Password -->
-            <input type="password" placeholder="Password" name="password"
+            <input id="passwordForLogin" type="password" placeholder="Password" name="password"
                    required /> <br>
 
             <!-- sign in button submit -->
-            <button id="button">Submit</button>
+            <button id="submitButton">Submit</button>
         </form>
     </div>
 
