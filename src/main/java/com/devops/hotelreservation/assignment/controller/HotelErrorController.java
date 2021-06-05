@@ -19,5 +19,4 @@ public class HotelErrorController implements ErrorController {
         return null;
     }
     
-    
 }
