@@ -4,7 +4,6 @@ applications:
   - name: hotelreservation
     memory: 1024M
     timeout: 500
-    random-route: true
     path: target/assignment-cf.jar
     buildpacks:
       - sap_java_buildpack
