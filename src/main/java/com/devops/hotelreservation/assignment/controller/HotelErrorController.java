@@ -18,4 +18,6 @@ public class HotelErrorController implements ErrorController {
     public String getErrorPath() {
         return null;
     }
+    
+    
 }
